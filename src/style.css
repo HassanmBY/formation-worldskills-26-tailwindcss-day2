@@ -1,105 +1,89 @@
 @import "tailwindcss";
 
 
-/* body{
-  @apply bg-pink-400 sm:bg-yellow-400 md:bg-green-400 lg:bg-blue-400
-}*/
-
 @theme {
-  --color-primary: hsl(70, 46%, 50%);
-  --color-primary-light: hsl(70, 46%, 70%);
-  --color-secondary: hsl(16, 46%, 50%);
-  --color-secondary-light: hsl(16, 46%, 70%);
+  --color-bodyBg: #f7e6db;
+  --color-primary: #3B82F6;
+  --color-secondary: #050824;
+  --color-accent: #fb6824;
+  --color-good: #22C55E;
+  --color-warning: #F97316;
+  --color-danger: #EF4444;
 
+  --color-textColor: #000;
 
-  --breakpoint-2md: 56rem;
-  --color-textColor: #000
+  --color-cardBg: #fff
+
 
 }
 
 .dark{
-  --color-primary: hsl(237, 45%, 20%);
-  --color-primary-light: hsl(237, 45%, 30%);
-  --color-secondary: hsl(27, 77%, 20%);
-  --color-secondary-light: hsl(27, 77%, 30%);
+  --color-bodyBg: #050824;
+  --color-secondary: #f7e6db;
+  --color-textColor: #fff;
+  --color-cardBg: #0a114c;
 
-  --color-textColor: #fff
+
 }
 
 @utility mode-transition {
-  @apply transition-colors duration-1000 ease-in-out
+  @apply transition-colors duration-750 ease-in-out
 }
-
-@utility animated-vertical-line{
-  @apply before:content-[""] before:w-1 before:bg-orange-400 before:absolute before:h-0 before:-translate-y-4 hover:before:h-full before:transition-all
-}
-
 *{
   @apply mode-transition
 }
 
 @variant dark (&:where(.dark, .dark *));
 
+
 body{
-  @apply bg-primary-light
+  @apply bg-bodyBg lg:flex lg:flex-row
 }
 
 .header{
-  @apply flex flex-col lg:flex-row gap-8 items-center justify-between px-6 py-4 bg-primary;
+  @apply bg-white p-6 flex justify-between rounded items-center lg:flex-col lg:h-svh lg:w-1/8 lg:fixed
 }
 
-.header__logo{
-  @apply w-8 aspect-square bg-secondary ;
+
+.header__title{
+  @apply uppercase
 }
+
 
 .nav__list{
-  @apply flex flex-col lg:flex-row gap-2 lg:gap-4
+  @apply flex gap-4 items-center lg:flex-col
 }
 
-.nav__listItem{
-  @apply cursor-pointer hover:text-2xl text-textColor transition-all
+.nav__button{
+  @apply bg-accent px-2 py-1 rounded hover:bg-secondary hover:text-accent cursor-pointer duration-200 text-nowrap
 }
+
 
 .main{
-  @apply p-6
-}
-
-#toggle-mode{
-  @apply  text-textColor bg-secondary-light border-2 border-secondary px-2 py-1 rounded cursor-pointer
+  @apply text-textColor p-6 flex gap-6 flex-wrap justify-center-safe lg:pl-[12.5%]
 }
 
 
-.details{
-  @apply flex justify-between relative bg-white py-4 pe-4 animated-vertical-line cursor-pointer;
+.card{
+  @apply rounded p-3 flex flex-col w-72 h-72 bg-cardBg;
 }
 
-.details__left{
-  @apply  flex gap-16 items-center group-hover:px-3 transition-all duration-200
+.card__top{
+  @apply h-full bg-primary;
 }
 
-.details__number{
-  @apply text-black/40 group-hover:text-black duration-200
+.card__bottom{
+  @apply flex flex-col;
 }
 
-.details__title{
-  @apply text-2xl font-semibold group-hover:text-orange-400 duration-200
+.card__temp{
+  @apply text-2xl font-bold
 }
 
-
-.details__right{
-  @apply flex gap-16 items-center
+.card__city{
+  @apply text-xl font-bold
 }
 
-
-.details__tagList{
-  @apply flex gap-4
+.card__data{
+  @apply flex justify-between
 }
-
-.details__tag{
-  @apply text-black/40 group-hover:text-black duration-200
-}
-
-.details__date{
-  @apply text-black/40 group-hover:text-black duration-200
-}
-
