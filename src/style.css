@@ -26,6 +26,17 @@
   --color-textColor: #fff
 }
 
+@utility mode-transition {
+  @apply transition-colors duration-1000 ease-in-out
+}
+
+@utility animated-vertical-line{
+  @apply before:content-[""] before:w-1 before:bg-orange-400 before:absolute before:h-0 before:-translate-y-4 hover:before:h-full before:transition-all
+}
+
+*{
+  @apply mode-transition
+}
 
 @variant dark (&:where(.dark, .dark *));
 
@@ -34,7 +45,7 @@ body{
 }
 
 .header{
-  @apply flex flex-col lg:flex-row gap-8 items-center justify-between px-6 py-4 bg-primary ;
+  @apply flex flex-col lg:flex-row gap-8 items-center justify-between px-6 py-4 bg-primary;
 }
 
 .header__logo{
@@ -46,7 +57,7 @@ body{
 }
 
 .nav__listItem{
-  @apply cursor-pointer hover:font-bold text-textColor
+  @apply cursor-pointer hover:text-2xl text-textColor transition-all
 }
 
 .main{
@@ -56,3 +67,39 @@ body{
 #toggle-mode{
   @apply  text-textColor bg-secondary-light border-2 border-secondary px-2 py-1 rounded cursor-pointer
 }
+
+
+.details{
+  @apply flex justify-between relative bg-white py-4 pe-4 animated-vertical-line cursor-pointer;
+}
+
+.details__left{
+  @apply  flex gap-16 items-center group-hover:px-3 transition-all duration-200
+}
+
+.details__number{
+  @apply text-black/40 group-hover:text-black duration-200
+}
+
+.details__title{
+  @apply text-2xl font-semibold group-hover:text-orange-400 duration-200
+}
+
+
+.details__right{
+  @apply flex gap-16 items-center
+}
+
+
+.details__tagList{
+  @apply flex gap-4
+}
+
+.details__tag{
+  @apply text-black/40 group-hover:text-black duration-200
+}
+
+.details__date{
+  @apply text-black/40 group-hover:text-black duration-200
+}
+
