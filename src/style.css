@@ -1,0 +1,23 @@
+@import "tailwindcss";
+
+
+/* body{
+  @apply bg-pink-400 sm:bg-yellow-400 md:bg-green-400 lg:bg-blue-400
+}*/
+
+.header{
+  @apply flex flex-col lg:flex-row gap-16 items-center justify-between px-6 py-8 bg-neutral-400;
+}
+
+.header__logo{
+  @apply w-8 aspect-square bg-purple-500;
+}
+
+
+.nav__list{
+  @apply flex flex-col lg:flex-row gap-2 lg:gap-4
+}
+
+.nav__listItem{
+  @apply cursor-pointer hover:font-bold
+}
