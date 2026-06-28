@@ -5,19 +5,54 @@
   @apply bg-pink-400 sm:bg-yellow-400 md:bg-green-400 lg:bg-blue-400
 }*/
 
+@theme {
+  --color-primary: hsl(70, 46%, 50%);
+  --color-primary-light: hsl(70, 46%, 70%);
+  --color-secondary: hsl(16, 46%, 50%);
+  --color-secondary-light: hsl(16, 46%, 70%);
+
+
+  --breakpoint-2md: 56rem;
+  --color-textColor: #000
+
+}
+
+.dark{
+  --color-primary: hsl(237, 45%, 20%);
+  --color-primary-light: hsl(237, 45%, 30%);
+  --color-secondary: hsl(27, 77%, 20%);
+  --color-secondary-light: hsl(27, 77%, 30%);
+
+  --color-textColor: #fff
+}
+
+
+@variant dark (&:where(.dark, .dark *));
+
+body{
+  @apply bg-primary-light
+}
+
 .header{
-  @apply flex flex-col lg:flex-row gap-16 items-center justify-between px-6 py-8 bg-neutral-400;
+  @apply flex flex-col lg:flex-row gap-8 items-center justify-between px-6 py-4 bg-primary ;
 }
 
 .header__logo{
-  @apply w-8 aspect-square bg-purple-500;
+  @apply w-8 aspect-square bg-secondary ;
 }
-
 
 .nav__list{
   @apply flex flex-col lg:flex-row gap-2 lg:gap-4
 }
 
 .nav__listItem{
-  @apply cursor-pointer hover:font-bold
+  @apply cursor-pointer hover:font-bold text-textColor
+}
+
+.main{
+  @apply p-6
+}
+
+#toggle-mode{
+  @apply  text-textColor bg-secondary-light border-2 border-secondary px-2 py-1 rounded cursor-pointer
 }
